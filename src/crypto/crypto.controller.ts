@@ -4,12 +4,11 @@ import { CryptoService } from './crypto.service'
 
 @Controller()
 export class CryptoController {
-  names: [string, string?]
   constructor(private readonly cryptoService: CryptoService) {}
 
-  @Sse('sse')
+  @Sse('crypto-prices')
   async sse(): Promise<Observable<unknown>> {
     const data = await this.cryptoService.handleIncommintData()
-    return interval(6000).pipe(map(() => ({ data })))
+    return interval(45000).pipe(map(() => ({ data })))
   }
 }
