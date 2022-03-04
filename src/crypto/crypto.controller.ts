@@ -9,10 +9,10 @@ export class CryptoController {
 
   @Sse('crypto-prices')
   SendData(): Observable<IData> {
-    return timer(0, 45000).pipe(
+    return timer(0, 60000).pipe(
       switchMap(async () => {
         const data = await lastValueFrom(
-          this.cryptoService.handleIncommintData().pipe(map((data) => data)),
+          this.cryptoService.handleIncommintData().pipe((data) => data),
         )
         return { data }
       }),
