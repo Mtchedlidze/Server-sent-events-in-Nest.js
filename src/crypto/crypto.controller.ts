@@ -1,5 +1,5 @@
 import { Controller, Sse } from '@nestjs/common'
-import { timer, lastValueFrom, map, Observable, switchMap } from 'rxjs'
+import { timer, lastValueFrom, Observable, switchMap } from 'rxjs'
 import { CryptoService } from './crypto.service'
 import { IData } from './interface/IData'
 
