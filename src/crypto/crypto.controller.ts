@@ -12,7 +12,7 @@ export class CryptoController {
     return timer(0, 60000).pipe(
       switchMap(async () => {
         const data = await lastValueFrom(
-          this.cryptoService.handleIncommintData().pipe((data) => data),
+          this.cryptoService.handleIncommintData()
         )
         return { data }
       }),
